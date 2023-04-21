@@ -4,43 +4,59 @@
 
 # 1- funkcja do sprawdzania poprawnosci podanego nr pesel - sprawdzenie czy podany string zawiera tylko cyfry (zwraca boola):
 def has_only_digits(pesel):
-    # tutaj kod (zmien ofc tego returna)
-    return False
+    digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    for char in pesel:
+        if not char in digits:
+            return False
+    return True
 
 
 # 2- funkcja do sprawdzania poprawnosci podanego nr pesel - sprawdzenie czy podany string ma odpowiednia ilosc znakow (zwraca boola):
 def has_correct_number_of_digits(pesel):
-    # tutaj kod
-    return False
+    return len(pesel) == 11
 
 # 3- funkcja do sprawdzania poprawnosci podanego nr pesel - sprawdza czy podany string ma poprawna liczbe kontrolna (zwraca boola):
 def has_correct_controll_number(pesel):
-    # tutaj kod
-    return False
+    multipliers = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3]
+    i = 0
+    sum = 0
+    if has_only_digits(pesel) and has_correct_number_of_digits(pesel):
+        while (i < len(multipliers)):
+            sum += (int(pesel[i]) * multipliers[i]) % 10
+            i += 1
+        return int(pesel[i]) == 10 - (sum%10)
+    else:
+        return False
 
 # 4- funkcja do sprawdzania poprawnosci podanego nr pesel - sprawdza czy podany string jest poprawnym peselem (zwraca boola)
 # ***(hint - uzyj tego co napisalas wyzej)***
 def is_correct_pesel(pesel):
-    # tutaj kod
-    return False
+    return has_correct_controll_number(pesel)
+# UWAGA - tak na prawde to ta funkcja jest zbedna, jej logika jest w funkcji has_correct_controll_number(pesel)
 
 # 5- funkcja ktory wyciaga plec z poprawnego nr pesel (zwraca string "Male" lub "Female" lub "" dla niepoprawnego - nie wypisuje tylko zwraca!):
 def get_sex(pesel):
-    # tutaj kod
-    return "Female"
+    if is_correct_pesel(pesel):
+        return "Male" if int(pesel[-2]) % 2 == 1 else "Female"
+    else: 
+        return ""
 
 # 6- funkcja ktory zwraca date urodzin z nr pesel (zwraca stringa DD-MM-RRRR, np "31-01-1950") lub string "" dla niepoprawnego peselu
 # wersja easy - zalozenie ze wszyscy sie urodzili miedzy 1900 a 1999
 # wersja hard - uwzglednia pelen zakres 1800-2299
 def get_birth_date(pesel):
-    # tutaj kod
-    return "01-01-1900"
+    if is_correct_pesel(pesel):
+        return pesel[4] + pesel[5] + "-" + pesel[2] + pesel [3] + "-19" + pesel[0] + pesel[1]
+    else: 
+        return ""
 
 # 7- funkcja zwraca string z informacja o plc i dacie urodzenia np. "Female - 01-01-1900" jesli PESEL jest poprawny, lub pusty string "" jesli PESEL jest niepoprawny
 # ***(hint - uzyj tego co napisalas wyzej)***
 def return_sex_and_birth_date(pesel):
-    # tutaj kod
-    return "Female - 01-01-1900"
+    if is_correct_pesel(pesel):
+        return get_sex(pesel) + " - " + get_birth_date(pesel)
+    else: 
+        return ""
 
 # Jesli wszystko poprawnie napisalas to wszystkie testy ponizej powinny miec status "Working"
 
