@@ -120,7 +120,7 @@ print("- get_birth_date status: " + get_birth_date_status)
 print("\nTEST return_sex_and_birth_date(pesel):")
 incorrect_pesel = "56042O37692"
 print("- INPUT: " + incorrect_pesel)
-return_sex_and_birth_date_status = "Working" if return_sex_and_birth_date(incorrect_pesel) == "Male - 20-04-1956" else "Not working"
+return_sex_and_birth_date_status = "Working" if return_sex_and_birth_date(incorrect_pesel) == "" else "Not working"
 print("- return_sex_and_birth_date status: " + return_sex_and_birth_date_status)
 correct_male_pesel = "56042037692"
 print("- INPUT: " + correct_male_pesel)
