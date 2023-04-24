@@ -38,7 +38,7 @@ def get_birth_date(pesel):
 
 # 7- funkcja zwraca string z informacja o plc i dacie urodzenia np. "Female - 01-01-1900" jesli PESEL jest poprawny, lub pusty string "" jesli PESEL jest niepoprawny
 # ***(hint - uzyj tego co napisalas wyzej)***
-def return_sex_and_birth_date(pesel):
+def get_sex_and_birth_date(pesel):
     # tutaj kod
     return "Female - 01-01-1900"
 
@@ -117,16 +117,16 @@ print("- INPUT: " + correct_birth_pesel)
 get_birth_date_status = "Working" if get_birth_date(correct_birth_pesel) == "15-07-1991" else "Not working"
 print("- get_birth_date status: " + get_birth_date_status)
 
-print("\nTEST return_sex_and_birth_date(pesel):")
+print("\nTEST get_sex_and_birth_date(pesel):")
 incorrect_pesel = "56042O37692"
 print("- INPUT: " + incorrect_pesel)
-return_sex_and_birth_date_status = "Working" if return_sex_and_birth_date(incorrect_pesel) == "" else "Not working"
-print("- return_sex_and_birth_date status: " + return_sex_and_birth_date_status)
+get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(incorrect_pesel) == "" else "Not working"
+print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
 correct_male_pesel = "56042037692"
 print("- INPUT: " + correct_male_pesel)
-return_sex_and_birth_date_status = "Working" if return_sex_and_birth_date(correct_male_pesel) == "Male - 20-04-1956" else "Not working"
-print("- return_sex_and_birth_date status: " + return_sex_and_birth_date_status)
+get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(correct_male_pesel) == "Male - 20-04-1956" else "Not working"
+print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
 correct_female_pesel = "38040283442"
 print("- INPUT: " + correct_female_pesel)
-return_sex_and_birth_date_status = "Working" if return_sex_and_birth_date(correct_female_pesel) == "Female - 02-04-1938" else "Not working"
-print("- return_sex_and_birth_date status: " + return_sex_and_birth_date_status)
+get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(correct_female_pesel) == "Female - 02-04-1938" else "Not working"
+print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
