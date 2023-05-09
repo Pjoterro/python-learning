@@ -24,10 +24,11 @@ def get_letter_shift(letter, number):
 
 def vigenere_encryption(text, key):
     result = ""
-    encrypting_flag = 1
     if key[0] == '-':
         key = key.replace('-', '')
         encrypting_flag = -1
+    else:
+        encrypting_flag = 1
     key_iterator = 0
     for char in text:
         if char in alphabet:
@@ -38,59 +39,60 @@ def vigenere_encryption(text, key):
             result += char
     return result
 
+
 # ---------------------
 #        TESTY
 # ---------------------
 
 
-# Test letter_shift() 1:
+# Test get_letter_shift() 1:
 letter_input = 'a'
 number_input = 2
 letter_output = 'c'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 1: ' + test_result)
+print('Test get_letter_shift() 1: ' + test_result)
 
-# Test letter_shift() 2:
+# Test get_letter_shift() 2:
 letter_input = 'g'
 number_input = 0
 letter_output = 'g'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 2: ' + test_result)
+print('Test get_letter_shift() 2: ' + test_result)
 
-# Test letter_shift() 3:
+# Test get_letter_shift() 3:
 letter_input = 'f'
 number_input = 15
 letter_output = 'u'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 3: ' + test_result)
+print('Test get_letter_shift() 3: ' + test_result)
 
-# Test letter_shift() 4:
+# Test get_letter_shift() 4:
 letter_input = 'v'
 number_input = -25
 letter_output = 'w'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 4: ' + test_result)
+print('Test get_letter_shift() 4: ' + test_result)
 
-# Test letter_shift() 5:
+# Test get_letter_shift() 5:
 letter_input = 'y'
 number_input = -5
 letter_output = 't'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 5: ' + test_result)
+print('Test get_letter_shift() 5: ' + test_result)
 
-# Test letter_shift() 6:
+# Test get_letter_shift() 6:
 letter_input = 'r'
 number_input = 40
 letter_output = 'f'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 6: ' + test_result)
+print('Test get_letter_shift() 6: ' + test_result)
 
-# Test letter_shift() 7:
+# Test get_letter_shift() 7:
 letter_input = 'j'
 number_input = -50
 letter_output = 'l'
 test_result = 'OK' if get_letter_shift(letter_input, number_input) == letter_output else 'NOT OK'
-print('Test letter_shift() 7: ' + test_result)
+print('Test get_letter_shift() 7: ' + test_result)
 
 # Test vigenere_encryption() 1:
 test_input_text = 'to jest test szyfrowania'
@@ -133,3 +135,10 @@ test_input_key = '-AAAA'
 test_output_text = 'powinno wyjsc to samo'
 test_result = 'OK' if vigenere_encryption(test_input_text, test_input_key) == test_output_text else 'NOT OK'
 print('Test vigenere_encryption() 6: ' + test_result)
+
+# Test vigenere_encryption() 7:
+test_input_text = 'lrfwjwh dfuek'
+test_input_key = '-BARDZODLUGIKLUCZ'
+test_output_text = 'krotkie slowa'
+test_result = 'OK' if vigenere_encryption(test_input_text, test_input_key) == test_output_text else 'NOT OK'
+print('Test vigenere_encryption() 7: ' + test_result)
