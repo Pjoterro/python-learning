@@ -62,3 +62,10 @@ test_input_key = '-AAAA'
 test_output_text = 'powinno wyjsc to samo'
 test_result = 'OK' if vigenere_encryption(test_input_text, test_input_key) == test_output_text else 'NOT OK'
 print('Test vigenere_encryption() 6: ' + test_result)
+
+# Test vigenere_encryption() 7:
+test_input_text = 'lrfwjwh dfuek'
+test_input_key = '-BARDZODLUGIKLUCZ'
+test_output_text = 'krotkie slowa'
+test_result = 'OK' if vigenere_encryption(test_input_text, test_input_key) == test_output_text else 'NOT OK'
+print('Test vigenere_encryption() 7: ' + test_result)
