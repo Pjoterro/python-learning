@@ -149,9 +149,9 @@ print("Test return_sex_and_birth_date() 1: " + test_result)
 input = "56042037692"
 output = "Male - 20-04-1956"
 test_result = "OK" if return_sex_and_birth_date(input) == output else "NOT OK"
-print("Test return_sex_and_birth_date() 1: " + test_result)
+print("Test return_sex_and_birth_date() 2: " + test_result)
 
 input = "38040283442"
 output = "Female - 02-04-1938"
 test_result = "OK" if return_sex_and_birth_date(input) == output else "NOT OK"
-print("Test return_sex_and_birth_date() 1: " + test_result)
+print("Test return_sex_and_birth_date() 3: " + test_result)
