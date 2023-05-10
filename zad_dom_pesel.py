@@ -48,85 +48,94 @@ def get_sex_and_birth_date(pesel):
 # PONIZEJ NIC NIE RUSZAJ, TO SA TESTY
 #------------------------------------
 
-print("\nTEST has_only_digits(pesel):")
-pesel_with_forbidden_chars = "111a2 7^719"
-print("- INPUT: " + pesel_with_forbidden_chars)
-has_only_digits_status = "Working" if has_only_digits(pesel_with_forbidden_chars) == False else "Not working"
-print("- has_only_digits status: " + has_only_digits_status)
-pesel_with_correct_chars = "11102576719"
-print("- INPUT: " + pesel_with_correct_chars)
-has_only_digits_status = "Working" if has_only_digits(pesel_with_correct_chars) == True else "Not working"
-print("- has_only_digits status: " + has_only_digits_status)
+# Test has_only_digits():
+input = "111a2 7^719" # wrong chars
+output = False
+test_result = "OK" if has_only_digits(input) == output else "NOT OK"
+print("Test has_only_digits() 1: " + test_result)
 
-print("\nTEST has_correct_number_of_digits(pesel):")
-pesel_too_long = "950813119921"
-print("- INPUT: " + pesel_too_long)
-has_correct_number_of_digits_status = "Working" if has_correct_number_of_digits(pesel_too_long) == False else "Not working"
-print("- has_correct_number_of_digits status: " + has_correct_number_of_digits_status)
-pesel_too_short = "9508131199"
-print("- INPUT: " + pesel_too_short)
-has_correct_number_of_digits_status = "Working" if has_correct_number_of_digits(pesel_too_short) == False else "Not working"
-print("- has_correct_number_of_digits status: " + has_correct_number_of_digits_status)
-pesel_correct_length = "95081311992"
-print("- INPUT: " + pesel_correct_length)
-has_correct_number_of_digits_status = "Working" if has_correct_number_of_digits(pesel_correct_length) == True else "Not working"
-print("- has_correct_number_of_digits status: " + has_correct_number_of_digits_status)
+input = "11102576719"
+output = True
+test_result = "OK" if has_only_digits(input) == output else "NOT OK"
+print("Test has_only_digits() 2: " + test_result)
 
-print("\nTEST has_correct_controll_number(pesel):")
-pesel_with_incorrect_control_number = "89021766888"
-print("- INPUT: " + pesel_with_incorrect_control_number)
-has_correct_controll_number_status = "Working" if has_correct_controll_number(pesel_with_incorrect_control_number) == False else "Not working"
-print("- has_correct_controll_number status: " + has_correct_controll_number_status)
-pesel_with_correct_control_number = "89021766887"
-print("- INPUT: " + pesel_with_correct_control_number)
-has_correct_controll_number_status = "Working" if has_correct_controll_number(pesel_with_correct_control_number) == True else "Not working"
-print("- has_correct_controll_number status: " + has_correct_controll_number_status)
+# Test has_correct_number_of_digits():
+input = "950813119921" # too long
+output = False
+test_result = "OK" if has_correct_number_of_digits(input) == output else "NOT OK"
+print("Test has_correct_number_of_digits() 1: " + test_result)
 
-print("\nTEST is_correct_pesel(pesel):")
-incorrect_pesel = "89O21766887"
-print("- INPUT: " + incorrect_pesel)
-is_correct_pesel_status = "Working" if is_correct_pesel(incorrect_pesel) == False else "Not working"
-print("- is_correct_pesel status: " + is_correct_pesel_status)
-correct_pesel = "89021766887"
-print("- INPUT: " + correct_pesel)
-is_correct_pesel_status = "Working" if is_correct_pesel(correct_pesel) == True else "Not working"
-print("- is_correct_pesel status: " + is_correct_pesel_status)
+input = "9508131199" # too short
+output = False
+test_result = "OK" if has_correct_number_of_digits(input) == output else "NOT OK"
+print("Test has_correct_number_of_digits() 2: " + test_result)
 
-print("\nTEST get_sex(pesel):")
-incorrect_sex_pesel = "06100999779"
-print("- INPUT: " + incorrect_sex_pesel)
-get_sex_status = "Working" if get_sex(incorrect_sex_pesel) == "" else "Not working"
-print("- get_sex status: " + get_sex_status)
-correct_male_pesel = "49120559317"
-print("- INPUT: " + correct_male_pesel)
-get_sex_status = "Working" if get_sex(correct_male_pesel) == "Male" else "Not working"
-print("- get_sex status: " + get_sex_status)
-correct_female_pesel = "26010253263"
-print("- INPUT: " + correct_female_pesel)
-get_sex_status = "Working" if get_sex(correct_female_pesel) == "Female" else "Not working"
-print("- get_sex status: " + get_sex_status)
+input = "95081311992"
+output = True
+test_result = "OK" if has_correct_number_of_digits(input) == output else "NOT OK"
+print("Test has_correct_number_of_digits() 3: " + test_result)
 
+# Test has_correct_controll_number():
+input = "89021766888" # wrong controll number
+output = False
+test_result = "OK" if has_correct_controll_number(input) == output else "NOT OK"
+print("Test has_correct_controll_number() 1: " + test_result)
 
-print("\nTEST get_birth_date(pesel):")
-incorrect_birth_pesel = "42050138336"
-print("- INPUT: " + incorrect_birth_pesel)
-get_birth_date_status = "Working" if get_birth_date(incorrect_birth_pesel) == "" else "Not working"
-print("- get_birth_date status: " + get_birth_date_status)
-correct_birth_pesel = "91071558279"
-print("- INPUT: " + correct_birth_pesel)
-get_birth_date_status = "Working" if get_birth_date(correct_birth_pesel) == "15-07-1991" else "Not working"
-print("- get_birth_date status: " + get_birth_date_status)
+input = "89021766887"
+output = True
+test_result = "OK" if has_correct_controll_number(input) == output else "NOT OK"
+print("Test has_correct_controll_number() 2: " + test_result)
 
-print("\nTEST get_sex_and_birth_date(pesel):")
-incorrect_pesel = "56042O37692"
-print("- INPUT: " + incorrect_pesel)
-get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(incorrect_pesel) == "" else "Not working"
-print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
-correct_male_pesel = "56042037692"
-print("- INPUT: " + correct_male_pesel)
-get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(correct_male_pesel) == "Male - 20-04-1956" else "Not working"
-print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
-correct_female_pesel = "38040283442"
-print("- INPUT: " + correct_female_pesel)
-get_sex_and_birth_date_status = "Working" if get_sex_and_birth_date(correct_female_pesel) == "Female - 02-04-1938" else "Not working"
-print("- get_sex_and_birth_date status: " + get_sex_and_birth_date_status)
+# Test is_correct_pesel():
+input = "89O21766887" # has O (letter) instead of 0 (digit)
+output = False
+test_result = "OK" if is_correct_pesel(input) == output else "NOT OK"
+print("Test is_correct_pesel() 1: " + test_result)
+
+input = "89021766887"
+output = True
+test_result = "OK" if is_correct_pesel(input) == output else "NOT OK"
+print("Test is_correct_pesel() 2: " + test_result)
+
+# Test get_sex():
+input = "06100999779" # incorrect sex
+output = ""
+test_result = "OK" if get_sex(input) == output else "NOT OK"
+print("Test get_sex() 1: " + test_result)
+
+input = "49120559317"
+output = "Male"
+test_result = "OK" if get_sex(input) == output else "NOT OK"
+print("Test get_sex() 2: " + test_result)
+
+input = "26010253263"
+output = "Female"
+test_result = "OK" if get_sex(input) == output else "NOT OK"
+print("Test get_sex() 3: " + test_result)
+
+# Test get_birth_date():
+input = "42050138336" # incorrect birth date
+output = ""
+test_result = "OK" if get_birth_date(input) == output else "NOT OK"
+print("Test get_birth_date() 1: " + test_result)
+
+input = "91071558279"
+output = "15-07-1991"
+test_result = "OK" if get_birth_date(input) == output else "NOT OK"
+print("Test get_birth_date() 2: " + test_result)
+
+# Test return_sex_and_birth_date():
+input = "56042O37692" # incorrect pesel
+output = ""
+test_result = "OK" if return_sex_and_birth_date(input) == output else "NOT OK"
+print("Test return_sex_and_birth_date() 1: " + test_result)
+
+input = "56042037692"
+output = "Male - 20-04-1956"
+test_result = "OK" if return_sex_and_birth_date(input) == output else "NOT OK"
+print("Test return_sex_and_birth_date() 1: " + test_result)
+
+input = "38040283442"
+output = "Female - 02-04-1938"
+test_result = "OK" if return_sex_and_birth_date(input) == output else "NOT OK"
+print("Test return_sex_and_birth_date() 1: " + test_result)
